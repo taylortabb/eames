@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;1,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            overflow: hidden; /* Prevent scrolling on the body directly */
+        }
+        .frame {
+            position: fixed; /* Make the frame fixed */
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 22px solid white; /* Dark brown wood color */
+            pointer-events: none; /* Allow clicks to pass through */
+            z-index: 100; /* Ensure it's above other content */
+        }
+
+        .frame2 {
+            position: fixed; /* Make the frame fixed */
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 5px;
+            border: 5px solid gold; /* Dark brown wood color */
+            pointer-events: none; /* Allow clicks to pass through */
+            z-index: 101; /* Ensure it's above other content */
+        }
+        .content {
+            position: absolute;
+            top: 15px; /* Adjust based on frame border */
+            left: 15px; /* Adjust based on frame border */
+            right: 15px; /* Adjust based on frame border */
+            bottom: 15px; /* Adjust based on frame border */
+            overflow-y: scroll; /* Enable scrolling within content */
+            padding: 0px; /* Optional: for better content visibility */
+            box-sizing: border-box;
+        }
+        /* Ensure the scrollbar doesn't overlap the frame */
+        .container {
+            margin-right: -20px; /* Adjust based on scrollbar width */
+        }
+
+        .collapsible {
+  	cursor: pointer;
+  	width: 100%;
+  	border: none;
+  	text-align: left;
+  	outline: none;
+  }
+
+  .full {
+  width: 100%;
+}
+
+  .active, .collapsible:hover {
+  	/*  background-color: #555;*/
+  }
+
+  .stuff {
+  	max-height: 0;
+  	overflow: hidden;
+  	transition: max-height 0.3s ease-out;
+  }
+    </style>
+</head>
+<body>
+    <div class="frame"></div>
+    <div class="frame2"></div> <!-- Frame stays outside and fixed -->
+    <div class="content"> <!-- Content scrolls behind the frame -->
+        <div class="container">
+            <div class="row">
+                <div class="two-thirds column" style="margin-top: 15%">
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd-NPfEWpDk3B37FaUEoXLhJ9hbEkDHpPM7y0sCQE8B7f7R_w/viewform?embedded=true" width="100%" height="950px" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+
+                    </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+            scrollWin();
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.maxHeight){
+                content.style.maxHeight = null;
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+            } 
+        });
+    }
+
+    function scrollWin() {
+  window.scrollBy(0, 100);
+}
+</script>
+
+
+</html>

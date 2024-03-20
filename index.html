@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;1,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            overflow: hidden; /* Prevent scrolling on the body directly */
+        }
+        .center-image {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+}
+        .frame {
+            position: fixed; /* Make the frame fixed */
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 22px solid white; /* Dark brown wood color */
+            pointer-events: none; /* Allow clicks to pass through */
+            z-index: 100; /* Ensure it's above other content */
+        }
+
+        .frame2 {
+            position: fixed; /* Make the frame fixed */
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 5px;
+            border: 5px solid gold; /* Dark brown wood color */
+            pointer-events: none; /* Allow clicks to pass through */
+            z-index: 101; /* Ensure it's above other content */
+        }
+        .content {
+            position: absolute;
+            top: 15px; /* Adjust based on frame border */
+            left: 15px; /* Adjust based on frame border */
+            right: 15px; /* Adjust based on frame border */
+            bottom: 15px; /* Adjust based on frame border */
+            overflow-y: scroll; /* Enable scrolling within content */
+            padding: 20px; /* Optional: for better content visibility */
+            box-sizing: border-box;
+        }
+        /* Ensure the scrollbar doesn't overlap the frame */
+        .container {
+            margin-right: -20px; /* Adjust based on scrollbar width */
+        }
+
+        .collapsible {
+  	cursor: pointer;
+  	width: 100%;
+  	border: none;
+  	text-align: left;
+  	outline: none;
+  }
+
+  .full {
+  width: 100%;
+}
+
+  .active, .collapsible:hover {
+  	/*  background-color: #555;*/
+  }
+
+  .stuff {
+  	max-height: 0;
+  	overflow: hidden;
+  	transition: max-height 0.3s ease-out;
+  }
+    </style>
+</head>
+<body>
+    <div class="frame"></div>
+    <div class="frame2"></div> <!-- Frame stays outside and fixed -->
+    <div class="content"> <!-- Content scrolls behind the frame -->
+        <div class="container">
+            <div class="row">
+                <div class="two-thirds column" style="margin-top: 5%">
+                    <img src="img.png" alt="Your Image" class="center-image">
+                    <h4><em> A Little Eames Day in LA</em></h4> 
+                    <h5>Eames House, or Case Study House No. 8, is a mid-20th century architectural icon in Los Angeles. The home was designed and built by Charles and Ray Eames, two of the most influential American designers. If you're like me, you've been fascinated by their furniture (<a href="https://www.eamesoffice.com/product/molded-plastic-side-chair/">1</a>, <a href="https://www.hermanmiller.com/products/seating/lounge-seating/eames-lounge-chair-and-ottoman/">2</a>), videos (<a href="https://www.youtube.com/watch?v=UJ-VFMymEiE">3</a>, <a href="https://www.youtube.com/watch?v=0fKBhvDjuy0">4</a>), and my favorite, the hang-it-all (<a href="https://www.vitra.com/en-un/product/details/hang-it-all">5</a>).
+                       </h5>
+                       <h5> I've wanted to see Eames House for a while, and it seems quite a few freinds have too. In turn, I'm hoping to organize a private group tour either April 27 , April 28, May 10, or May 11. The tour will be led by an Eames foundation docent, last about 90 minutes and will focus on the grounds and exterior of the house and is approx $45/person.
+                        <br>
+                        <h5> → Please click <a href="avail.html">here</a> to share your Availiblity</h5>
+
+                        <h4><em> Who's Coming Along?</em> </h4> 
+                        <h5> So far those who have shared interest are a really interesting group — engineers, craftspeople, gardeners, creative directors, mostly from LA and slightly beyond. I think in addition to the artecture, this is a really great group — beyond the tour, expect an oppertunity for some socializing and a drink
+                         <br>
+                         <br>
+                         ♥ Taylor
+
+                        </h5>
+                    </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.maxHeight){
+                content.style.maxHeight = null;
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+            } 
+        });
+    }
+</script>
+
+
+</html>
